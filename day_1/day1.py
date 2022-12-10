@@ -2,9 +2,9 @@
 
 with open('input.txt') as f:
     d1 = [[]]
-    for index, line in enumerate(f): 
-        line = line.split('\n')
-        if line[0] != '':
+    for line in f: 
+        line = line.split()
+        if line:
             line = int(line[0])
             d1[-1].append(line)
         else:
