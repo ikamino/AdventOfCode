@@ -13,10 +13,8 @@ with open('input.txt') as f:
 
 def p1(nums):
     res = 0
-    curr = 0
     for i in nums: 
-        curr = sum(i)
-        res = max(curr, res)
+        res = max(sum(i), res)
     return res
 
 
