@@ -25,7 +25,7 @@ def encode_sum(items):
     return res
 
 
-def main(lines):
+def p1(lines):
     items = []
     for i in lines: 
         # mid is practically guaranteed to be even. 
@@ -39,6 +39,26 @@ def main(lines):
                 break
     return items
 
-print(encode_sum(main(d3)))
-        
-        
+def p2(lines):
+    # group into threes
+    lines = [lines[i:i+3] for i in range(0, len(lines), 3)]
+    items = []
+    for i in lines: 
+        res = set()
+        pot = set()
+        for n in i[0]: 
+            res.add(n)
+        for n in i[1]:
+            if n in res:
+                pot.add(n)
+        for n in i[2]:
+            if n in pot: 
+                items.append(n)
+                break
+    return items
+
+    
+print(encode_sum(p1(d3)))
+print(encode_sum(p2(d3)))  
+
+
